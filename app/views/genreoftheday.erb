@@ -1,0 +1,9 @@
+<div class="container">
+  <h1><%= @query_date %></h1>
+  <% @latest_fifty.each do |track| %>
+    <p><%= track.title %></p>
+    <p><%= track.genre %></p>
+    <p><%= track.created_at %></p>
+    <hr>
+  <% end %>
+</div>
