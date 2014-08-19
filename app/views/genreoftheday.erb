@@ -1,11 +1,28 @@
 <div class="container">
   <h1><%= @query_date %></h1>
-  <%
-  <% @latest_fifty.each do |track| %>
-    <p><%= track.title %></p>
-    <p><%= track.genre %></p>
-    <p>HEPPY</p>
-    <p><%= track.created_at %></p>
+  <% genre_frequencies = Hash.new(0) %>
+  <% i = 1 %>
+  <% @latest_fifty.sort_by.each do |track| %>
+    <h4><%= i %>. <%= track.title %></h4>
+    <img src="<%= track.artwork_url %>">
+    <div style="display: inline-block">
+      <p>Genre: <%= track.genre %></p>
+      <p>Playback Count: <%= track.playback_count %></p>
+      <p>Uploaded At: <%= track.created_at %></p>
+      <% i += 1 %>
+    </div>
+    <% genre_frequencies[track.genre] += 1 %>
     <hr>
   <% end %>
+  <% genre_frequencies = genre_frequencies.sort_by{ |genre, frequency| frequency } %>
+  <% genre_frequencies.reverse! %>
+    <h2>Most Common Genres</h2>
+    <% genre_frequencies.each do |genre, frequency| %>
+      <% if genre == nil %>
+        <% genre = "nil" %>
+      <% elsif genre == "" %>
+        <% genre = "\"\"" %>
+      <% end %>
+      <h4><%= genre %> : <%= frequency %> </h4>
+    <% end %>
 </div>
