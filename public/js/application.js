@@ -12,6 +12,7 @@ $(document).ready(function() {
       data: searchForm.serialize(),
       dataType: "json"
     }).done(function(data){
+      console.log(data)
       for (i = 0; i < data.length; i++){
         if (data[i].artwork_url == null){
           data[i].artwork_url = "https://wiki.openttd.org/images/thumb/6/6d/No_image.png/80px-No_image.png"
