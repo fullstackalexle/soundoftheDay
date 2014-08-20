@@ -1,8 +1,17 @@
+body {
+  background-color: #FE7B13;
+  color: #fff;
+}
+
 .container {
-  margin: 20px auto;
-  width: 80%;
+  margin: 40% auto;
+  width: 30%;
   padding: 20px 20px 20px 20px;
-  border: 1px dotted black;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  background-image: url('http://inwallspeakers1.com/wp-content/uploads/2014/01/soundcloud-icon-psd.jpg');
+  background-color: #42413F;
+  background-repeat: repeat-y;
 }
 
 th {
@@ -12,6 +21,13 @@ th {
 #search {
   text-align: center;
   padding: 20px;
+}
+
+.sound_button {
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: #FE7B13;
 }
 
 .top200 {
