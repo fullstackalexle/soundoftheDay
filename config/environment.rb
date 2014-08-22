@@ -22,6 +22,7 @@ require 'erb'
 require 'soundcloud'
 require 'yaml'
 require 'time'
+require 'bcrypt'
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))

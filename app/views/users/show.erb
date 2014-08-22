@@ -1,0 +1,15 @@
+<div class="header">
+  <div class="nav">
+    <button class="sound_button"><a href="/index">Search</a></button>
+    <button class="sound_button"><a href="/logout">Log Out</a></button>
+  </div>
+  <div class="header_profile">
+    <h1><%= current_user.username %></h1>
+    <p><%= current_user.email %></p>
+  </div>
+</div>
+<div class="addtrack_container">
+  <% current_user.playlists.each do |playlist| %>
+    <h1><a href=""><%= playlist.title %></a></h1>
+  <% end %>
+</div>

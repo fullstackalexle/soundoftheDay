@@ -1,0 +1,9 @@
+<div class="boxlogin">
+  <form name="signup" id ="signup" action="/users/new" method="post">
+    <input type="text" name="signup[email]" placeholder="E-mail" required>
+    <input type="text" name="signup[username]" placeholder="Username" required>
+    <input type="password" name="signup[password]" placeholder="Password" required><br>
+    <input class="sound_button" type="submit" value="Sign Up">
+  </form>
+  <%= @error %>
+</div>

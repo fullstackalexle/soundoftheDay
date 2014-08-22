@@ -1,0 +1,35 @@
+<body style="background-color: #E6E6E6">
+<div class="header">
+  <div class="nav" style="margin-left: 75%">
+    <button class="sound_button"><a href="/index">Search</a></button>
+    <button class="sound_button"><a href="/users/show">Profile</a></button>
+    <button class="sound_button"><a href="/logout">Log Out</a></button>
+  </div>
+  <div class="header_profile">
+    <h1><%= current_user.username %></h1>
+    <p><%= current_user.email %></p>
+  </div>
+</div>
+
+<div class="addtrack_container">
+  <img style="position: relative; float: left; height: 150px; padding-right: 10px;" src="<%= @new_track.artwork_url %>">
+  <h2><%= @new_track.user.username %> - <%= @new_track.title %></h2>
+  <p>Genre: <%= @new_track.genre %></p>
+  <p>Playback Count: <%= @new_track.playback_count %></p>
+  <p>Uploaded At: <%= @new_track.created_at %></p>
+  <object width='100%' style='display: block'><param name='movie' value='http://player.soundcloud.com/player.swf?url="<%= @new_track.permalink_url.sub(/\//, '%2F') %>&enable_api=true&object_id=yourPlayerId'></param><param name='allowscriptaccess' value='always'></param><embed allowscriptaccess='always' height='81' src='http://player.soundcloud.com/player.swf?url="<%= @new_track.permalink_url.sub(/\//, '%2F') %>&enable_api=true&object_id=yourPlayerId' type='application/x-shockwave-flash' width='100%' name='yourPlayerId'></embed></object>
+  <form name="addtrack" id ="addtrack" action="/addtrack/new" method="post">
+      <% Track.create(soundcloud_db_id: @new_track.id, title: @new_track.title, artist: @new_track.user.username, genre: @new_track.genre, permalink_url: @new_track.permalink_url, duration: @new_track.duration, playback_count: @new_track.playback_count, download_count: @new_track.download_count, favoritings_count: @new_track.favoritings_count, comment_count: @new_track.comment_count, created_at: @new_track.created_at) %>
+      <% if @playlist == nil %>
+        <input type="text" name="playlist_new" placeholder="Create a playlist" required>
+      <% else %>
+        <select name="playlist">
+          <% @playlists.each do |playlist| %>
+            <option value="<%= playlist.id %>"><%= playlist.title %></option>
+          <% end %>
+        </select>
+      <% end %>
+    <input class="sound_button" type="submit" value="ADD TO PLAYLIST">
+  </form>
+</div>
+</body>

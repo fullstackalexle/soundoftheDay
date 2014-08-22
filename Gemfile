@@ -20,6 +20,8 @@ gem 'shotgun'
 
 gem 'soundcloud'
 
+gem 'bcrypt'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'

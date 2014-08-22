@@ -1,0 +1,10 @@
+<div class="boxlogin">
+  <form name="login" id ="login" action="/authenticate" method="post">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required><br>
+    <input class="sound_button" type="submit" value="Log In">
+    <button class="sound_button"><a href="/users/new">Sign Up</a></button>
+  </form>
+  <%= @error %>
+</div>
+
